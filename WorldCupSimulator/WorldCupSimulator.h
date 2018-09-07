@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <random>
 
+std::vector<team> generate_teams();
+void run_tournament(std::vector<team> teams);
 
 
 #endif
