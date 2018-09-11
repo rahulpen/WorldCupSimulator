@@ -2,8 +2,19 @@
 
 
 
+team::team(std::string tn, int att, int mid, int def, int ove)
+{
+	team_name = tn;
+	attack = att;
+	midfield = mid;
+	defense = def;
+	overall = ove;
+};
+
+
+
 bool team::operator< (const team &other) const {
-	return total < other.total;
+	return overall < other.overall;
 };
 
 

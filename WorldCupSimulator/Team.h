@@ -1,20 +1,17 @@
 #ifndef TEAM
 #define TEAM
 #include <vector>
-#include "Player.h"
+#include <string>
 
 class team {
 public:
-	int attack;
-	int defense;
-	int passing;
-	int momentum;
-	int tactics;
-	int total;
-	int team_id;
-	std::vector<player> players;
-private:
+	int attack, midfield, defense, overall, played, wins, draws, losses = 0;
+	std::string team_name;
+
+	
+	team(std::string tn, int att, int mid, int def, int ove);
 	bool operator< (const team &other) const;
+
 };
 
 #endif
