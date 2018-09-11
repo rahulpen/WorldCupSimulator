@@ -17,5 +17,9 @@ bool team::operator< (const team &other) const {
 	return overall < other.overall;
 };
 
+bool team::operator> (const team &other) const {
+	return overall > other.overall;
+};
+
 
 

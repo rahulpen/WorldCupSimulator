@@ -11,6 +11,7 @@ public:
 	
 	team(std::string tn, int att, int mid, int def, int ove);
 	bool operator< (const team &other) const;
+	bool operator> (const team &other) const;
 
 };
 
