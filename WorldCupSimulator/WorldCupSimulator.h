@@ -1,14 +1,15 @@
-#ifndef WORLDCUPSIMULATOR
-#define WOLRDCUPSIMULATOR
+#ifndef WORLDCUPSIMULATOR_H
+#define WOLRDCUPSIMULATOR_H
 
 #include "Team.h"
+#include "Tournament.h"
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <random>
 
-std::vector<team> intialize_teams();
-void run_tournament(std::vector<team> teams);
+
+std::vector<Team> initialize_teams();
 
 
-#endif
+#endif //WORLDCUPSIMULATOR_H

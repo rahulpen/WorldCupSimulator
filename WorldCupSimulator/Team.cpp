@@ -2,23 +2,36 @@
 
 
 
-team::team(std::string tn, int att, int mid, int def, int ove)
+Team::Team(std::string tn, int att, int mid, int def)
 {
 	team_name = tn;
 	attack = att;
 	midfield = mid;
 	defense = def;
-	overall = ove;
 };
 
+Team::Team(const Team & t1) {
+	team_name = t1.team_name;
+	attack = t1.attack;
+	midfield = t1.midfield;
+	defense = t1.defense;
+	played = t1.played;
+	wins = t1.wins;
+	draws = t1.draws;
+	losses = t1.losses;
+	team_name = t1.team_name;
+}
 
+Team::~Team() {
+	
+}
 
-bool team::operator< (const team &other) const {
-	return overall < other.overall;
+bool Team::operator< (const Team &other) const {
+	
 };
 
-bool team::operator> (const team &other) const {
-	return overall > other.overall;
+bool Team::operator> (const Team &other) const {
+	
 };
 
 

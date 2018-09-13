@@ -1,18 +1,19 @@
-#ifndef TEAM
-#define TEAM
+#ifndef TEAM_H
+#define TEAM_H
 #include <vector>
 #include <string>
 
-class team {
-public:
-	int attack, midfield, defense, overall, played, wins, draws, losses = 0;
+class Team {
+	public:
+	int attack, midfield, defense, played, wins, draws, losses = 0;
 	std::string team_name;
-
 	
-	team(std::string tn, int att, int mid, int def, int ove);
-	bool operator< (const team &other) const;
-	bool operator> (const team &other) const;
+	Team(std::string tn, int att, int mid, int def);
+	Team(const Team & t1);
+	~Team();
+	bool operator< (const Team &other) const;
+	bool operator> (const Team &other) const;
 
 };
 
-#endif
+#endif //TEAM_H
