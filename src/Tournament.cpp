@@ -67,37 +67,15 @@ void Tournament::run_game(Team& a, Team& b) {
 int Tournament::calculate_goals(const Team& attacking_team,const Team& defending_team) {
 	std::uniform_int_distribution<int> goal_distribution{ 1, 10 };
 	int goals = 0;
-	int x = goal_distribution(engine);
-	if (x > 2) {
-		goals++;
+	int count = 2;
+	int x;
+	while (true) {
 		x = goal_distribution(engine);
-		if (x > 3) {
+		if (x > count) {
 			goals++;
-			x = goal_distribution(engine);
-			if (x > 4) {
-				goals++;
-				x = goal_distribution(engine);
-				if (x > 5) {
-					goals++;
-					x = goal_distribution(engine);
-					if (x > 6) {
-						goals++;
-						x = goal_distribution(engine);
-						if (x > 7) {
-							goals++;
-							x = goal_distribution(engine);
-							if (x > 8) {
-								goals++;
-								x = goal_distribution(engine);
-								if (x > 9) {
-									goals++;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		} else {break;}
+		count++;
 	}
+
 	return goals;
 }
