@@ -19,6 +19,7 @@ Team::Team(const Team & t1) {
 	wins = t1.wins;
 	draws = t1.draws;
 	losses = t1.losses;
+	goals = t1.goals;
 	team_name = t1.team_name;
 }
 

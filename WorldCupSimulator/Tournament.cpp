@@ -1,13 +1,16 @@
 #include "Tournament.h"
 
-void Tournament::run_tournament(std::vector<Team> teams){
-	assign_groups(teams);
+void Tournament::run_tournament(std::vector<Team>& teams){
+	std::vector<std::vector<Team>> groups = assign_groups(teams);
 	run_group_stage(groups);
 
 }
 
-void Tournament::assign_groups(std::vector<Team> teams) {
-	//assign teams to each group (teams are already in random order)
+std::vector<std::vector<Team>> Tournament::assign_groups(std::vector<Team>& teams) {
+	//shuffle teams in vector using random engine
+	std::shuffle(teams.begin(), teams.end(), engine);
+
+	//assign the teams to a group
 	for (int i = 0; i < teams.size(); i++) {
 		if (i < 4)
 			group_A.push_back(teams[i]);
@@ -26,16 +29,75 @@ void Tournament::assign_groups(std::vector<Team> teams) {
 		else if (i >= 28 && i < 32)
 			group_H.push_back(teams[i]);
 	}
+	std::vector<std::vector<Team>> groups = { group_A, group_B, group_C, group_D, group_E, group_F, group_G };
+	return groups;
 }
 
-void Tournament::run_group_stage(std::vector <std::vector<Team>> groups) {
-
+void Tournament::run_group_stage(std::vector <std::vector<Team>>& groups) {
+	for (int i = 0; i < groups.size(); i++) {
+		run_game(groups[i][0], groups[i][1]);
+		run_game(groups[i][0], groups[i][2]);
+		run_game(groups[i][0], groups[i][3]);
+		run_game(groups[i][1], groups[i][2]);
+		run_game(groups[i][1], groups[i][3]);
+		run_game(groups[i][2], groups[i][3]);
+		
+	}
 }
 
-void Tournament::run_game(std::vector<Team> a, std::vector<Team> b) {
-
+void Tournament::run_game(Team& a, Team& b) {
+	int goals_a = calculate_goals(a, b);
+	int goals_b = calculate_goals(b, a);
+	a.goals += goals_a;
+	b.goals += goals_b;
+	if (goals_a > goals_b) {
+		a.wins++;
+		b.losses++;
+	}
+	else if (goals_b > goals_a) {
+		b.wins++;
+		a.losses++;
+	}
+	else if (goals_a == goals_b) {
+		a.draws++;
+		b.draws++;
+	}
 }
 
-void Tournament::calculate_goals() {
-
+int Tournament::calculate_goals(const Team& attacking_team,const Team& defending_team) {
+	std::uniform_int_distribution<int> goal_distribution{ 1, 10 };
+	int goals = 0;
+	int x = goal_distribution(engine);
+	if (x > 2) {
+		goals++;
+		x = goal_distribution(engine);
+		if (x > 3) {
+			goals++;
+			x = goal_distribution(engine);
+			if (x > 4) {
+				goals++;
+				x = goal_distribution(engine);
+				if (x > 5) {
+					goals++;
+					x = goal_distribution(engine);
+					if (x > 6) {
+						goals++;
+						x = goal_distribution(engine);
+						if (x > 7) {
+							goals++;
+							x = goal_distribution(engine);
+							if (x > 8) {
+								goals++;
+								x = goal_distribution(engine);
+								if (x > 9) {
+									goals++;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return goals;
 }

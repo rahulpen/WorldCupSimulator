@@ -6,7 +6,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <random>
 
 
 std::vector<Team> initialize_teams();
