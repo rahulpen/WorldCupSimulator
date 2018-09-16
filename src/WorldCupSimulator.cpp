@@ -41,8 +41,6 @@ std::vector<Team> initialize_teams(){
 		England, Colombia, Mexico, Uruguay, Croatia, Denmark, Iceland, Costa_Rica, Sweden, Tunisia, Egypt, Senegal, Iran, Serbia,
 		Nigeria, Australia, Japan, Morocco, Panama, South_Korea, Saudi_Arabia };
 	
-	//shuffle teams in vector using random engine
-	std::shuffle(teams.begin(), teams.end(), engine);
 	return teams;
 }
 
