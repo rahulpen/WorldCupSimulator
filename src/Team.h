@@ -5,14 +5,14 @@
 
 class Team {
 	public:
-	int attack, midfield, defense, played, wins, draws, losses = 0;
+	int attack, midfield, defense, played, wins, draws, losses, goals = 0;
 	std::string team_name;
 	
 	Team(std::string tn, int att, int mid, int def);
 	Team(const Team & t1);
 	~Team();
-	bool operator< (const Team &other) const;
-	bool operator> (const Team &other) const;
+	bool operator< (const Team& other) const;
+	bool operator> (const Team& other) const;
 
 };
 
