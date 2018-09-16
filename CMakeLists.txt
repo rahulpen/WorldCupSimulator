@@ -5,6 +5,8 @@ project(WorldCupSimuator)
 
 set(CMAKE_BUILD_TYPE Debug)
 
+set (CMAKE_CXX_STANDARD 11)
+
 # Use glob to get the list of all source files.
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 

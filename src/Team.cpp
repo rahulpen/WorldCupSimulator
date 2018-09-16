@@ -30,12 +30,12 @@ Team::~Team() {
 bool Team::operator< (const Team &other) const {
 	// FIX
 	return false;
-};
+}
 
 bool Team::operator> (const Team &other) const {
 	// FIX
 	return false;
-};
+}
 
 
 
